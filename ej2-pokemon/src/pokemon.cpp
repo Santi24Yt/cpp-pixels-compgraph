@@ -1,65 +1,9 @@
 #include <SFML/Graphics.hpp>
+#include "lines.h"
 
 using namespace std;
 
 typedef unsigned char byt;
-
-struct point {
-  double x;
-  double y;
-};
-
-typedef struct point Point;
-
-Point lerp(Point p0, Point p1, double t) {
-  Point pt;
-  pt.x = ((1-t) * p0.x) + (t*p1.x);
-  pt.y = ((1-t) * p0.y) + (t*p1.y);
-
-  return pt;
-}
-
-vector<Point> bezier(Point p0, Point p1, Point p2) {
-  vector<Point> pts(1000);
-
-  for (int t = 0; t < 1000; t++) {
-    Point p11 = lerp(p0, p1, (double)t/1000.0);
-    Point p12 = lerp(p1, p2, (double)t/1000.0);
-    Point p22 = lerp(p11, p12, (double)t/1000.0);
-    pts[t] = p22;
-  }
-
-  return pts;
-}
-
-vector<Point> chaikin(Point p1, Point p2, Point p3, Point p4, int steps) {
-  vector<Point> pts;
-  pts.push_back(p1);
-  pts.push_back(p2);
-  pts.push_back(p3);
-  pts.push_back(p4);
-  for (int i = 0; i < steps; i++) {
-    vector<Point> npts;
-    npts.push_back(p1);
-    for (int j = 0; j < (int)pts.size() - 1; j++) {
-      Point p11 = lerp(pts[j], pts[j+1], 0.25);
-      Point p22 = lerp(pts[j], pts[j+1], 0.75);
-      npts.push_back(p11);
-      npts.push_back(p22);
-    }
-    npts.push_back(p4);
-    pts = npts;
-  }
-  int ptsmax = 1000/(int)pts.size();
-  int ptssizeog = pts.size();
-  for (int i = 0; i < ptssizeog - 1; i++) {
-    for (int t = 0; t < ptsmax; t++) {
-      Point pn = lerp(pts[i], pts[i+1], (double)t/(double)ptsmax);
-      pts.push_back(pn);
-    }
-  }
-  return pts;
-}
 
 int main() {
   int width = 1270;
@@ -108,7 +52,36 @@ int main() {
   // for (Point p : ptschaink0) {
   //   image[(int)p.y][(int)p.x] = 0x00FF00FF;
   // }
+  
+  Point p8 = { 100, 100 };
+  Point p9 = { 400, 100 };
+  vector<Point> ptsbresen = bresenham(p8, p9);
 
+  for (Point p : ptsbresen) {
+    image[(int)p.y][(int)p.x] = 0x0FF0000FF;
+  }
+  image[(int)p8.y][(int)p8.x] = 0x0000FFFF;
+  image[(int)p9.y][(int)p9.x] = 0x0000FFFF;
+
+  for (int i = 0; i < 10; i++) {
+    int x1 = rand() % 1270;
+    int y1 = rand() % 680;
+    Point pb1;
+    pb1.x = x1;
+    pb1.y = y1;
+    int x2 = rand() % 1270;
+    int y2 = rand() % 680;
+    Point pb2;
+    pb2.x = x2;
+    pb2.y = y2;
+
+    vector<Point> ptsbres = bresenham(pb1, pb2);
+    for (Point p : ptsbres) {
+      image[(int)p.y][(int)p.x] = 0x0FF0000FF;
+    }
+    image[(int)pb1.y][(int)pb1.x] = 0x0000FFFF;
+    image[(int)pb2.y][(int)pb2.x] = 0x0000FFFF;
+  }
 
   byt data[height * width * 4];
   for (int x = 0; x < width; x++) {
