@@ -1,1 +1,5 @@
 lastcall
+lastcall.exe
+src/*.o
+lastcall.layout
+Makefile.win

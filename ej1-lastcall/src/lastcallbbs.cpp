@@ -4,6 +4,7 @@
 /* Incluir esta bilbioteca si estamos en windows */
 #ifndef _SDL_BGI_H
 #include <conio.h>
+#include <cmath>
 #endif
 
 using namespace std;
