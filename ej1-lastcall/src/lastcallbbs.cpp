@@ -53,7 +53,9 @@ void dsimwin(int tt);
 
 /* Esperar ciertos milisegundos sin que se quede en blanco la pantalla */
 void sleep(int ms) {
+  #ifdef _SDL_BGI_H
   swapbuffers();
+  #endif
   delay(ms);
   swapbuffers();
 }
