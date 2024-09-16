@@ -7,8 +7,6 @@ preferida, de tu videojuego favorito. Para este ejercicio podrás usar otras las
 ### Linux
 ![Screenshot](https://github.com/Santi24Yt/cpp-pixels-compgraph/blob/main/assets/linuxlastcallss.png?raw=true)
 
-<video src='https://github.com/Santi24Yt/cpp-pixels-compgraph/raw/main/assets/linuxbbs.mp4' width=180/>
-
 
 ### Windows
 
@@ -24,3 +22,5 @@ pueden usar la función putPixel()
 
 Segunda parte: Utilizando las funciones que definiste anteriormente, realiza un dibujo de tu Pokemon o animal
 mitológico favorito.
+
+![Screenshot](https://github.com/Santi24Yt/cpp-pixels-compgraph/blob/main/assets/linuxpokemonss.png?raw=true)
