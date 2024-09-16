@@ -7,7 +7,7 @@ preferida, de tu videojuego favorito. Para este ejercicio podrás usar otras las
 ### Linux
 ![Screenshot](https://github.com/Santi24Yt/cpp-pixels-compgraph/blob/main/assets/linuxlastcallss.png?raw=true)
 
-[Video][https://github.com/Santi24Yt/cpp-pixels-compgraph/raw/main/assets/linuxbbs.mp4]
+![Video][https://github.com/Santi24Yt/cpp-pixels-compgraph/raw/main/assets/linuxbbs.mp4]
 
 
 ### Windows
