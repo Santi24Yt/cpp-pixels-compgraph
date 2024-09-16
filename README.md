@@ -16,6 +16,8 @@ https://github.com/user-attachments/assets/1c5e3c4d-2074-4420-b500-f01ad773ecf9
 
 
 ### Windows
+![Screenshot]()
+
 
 
 ## Ejercicio 2

@@ -10,7 +10,22 @@ $ ./lastcall
 
 
 Para compilar y ejecutar en windows usando DevC++ 5.11:
+
 Primero descargamos y ponemos los archivos adicionales que
 nos dan para la práctica, luego tenemos que reemplazar uno
 de los archivos que nos dan ya que es una versión antigua
 que no tiene todas las funciones que debería ya implementadas.
+
+Usar el libbgi.a que se encuetra en la carpeta de assets.
+
+Luego hay que añadir en los parámetros del compilador (Ctrl + H)
+sección de parametros, apartado de "linker" las banderas
+-lbgi
+-lgdi32
+-lcomdlg32
+-luuid
+-loleaut32
+-lole32
+
+Y ya con eso podemos compilar y ejecutar, en caso de que esté el compilador
+de 64 bits cambiar al de 32.
