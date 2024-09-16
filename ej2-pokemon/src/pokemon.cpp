@@ -173,14 +173,108 @@ int main() {
     {52, 182},
     {67, 126}
   };
-  polyfill(pokemonbres, image, 0xFF0000FF);
+  vector<Point> ojos1bres = {
+    {269, 65},
+    {279, 56},
+    {294, 65},
+    {303, 86},
+    {273, 101},
+    {266, 84}
+  };
+  vector<Point> ojos2bres = {
+    {209, 97},
+    {218, 103},
+    {228, 125},
+    {217, 133},
+    {208, 117}
+  };
+  vector<Point> ojos3bres = {
+    {268, 70},
+    {278, 70},
+    {288, 80},
+    {292, 93},
+    {273, 102},
+    {266, 84}
+  };
+  vector<Point> ojos4bres = {
+    {213, 105},
+    {214, 100},
+    {218, 104},
+    {228, 125},
+    {224, 131},
+    {215, 118}
+  };
+  vector<Point> brazobres = {
+    {279, 179},
+    {281, 195},
+    {293, 203},
+    {298, 189},
+    {302, 176},
+    {297, 158},
+    {282, 164}
+  };
+  vector<Point> narizbres = {
+    {228, 131},
+    {262, 141},
+    {281, 112}
+  };
+
+  polyfill(pokemonbres, image, 0xff53afFF);
+  polyfill(ojos1bres, image, 0xff53afFF);
+  polyfill(ojos2bres, image, 0xff53afFF);
+  polyfill(ojos3bres, image, 0x00ffffFF);
+  polyfill(ojos4bres, image, 0x00ffffFF);
+  polyfill(brazobres, image, 0xff53afFF);
+  polyfill(narizbres, image, 0xff53afFF);
+
   vector<Point> pokemonchaink(pokemonbres.size());
+  vector<Point> ojos1chaink(ojos1bres.size());
+  vector<Point> ojos2chaink(ojos2bres.size());
+  vector<Point> ojos3chaink(ojos3bres.size());
+  vector<Point> ojos4chaink(ojos4bres.size());
+  vector<Point> brazochaink(brazobres.size());
+
   for (int i = 0; i < (int)pokemonbres.size(); i++) {
     pokemonchaink[i].x = pokemonbres[i].x + 400;
     pokemonchaink[i].y = pokemonbres[i].y;
   }
-  polychaink(pokemonchaink, image, 0x00FF00FF, 4);
+  for (int i = 0; i < (int)ojos1bres.size(); i++) {
+    ojos1chaink[i].x = ojos1bres[i].x + 400;
+    ojos1chaink[i].y = ojos1bres[i].y;
+  }
+  for (int i = 0; i < (int)ojos2bres.size(); i++) {
+    ojos2chaink[i].x = ojos2bres[i].x + 400;
+    ojos2chaink[i].y = ojos2bres[i].y;
+  }
+  for (int i = 0; i < (int)ojos3bres.size(); i++) {
+    ojos3chaink[i].x = ojos3bres[i].x + 400;
+    ojos3chaink[i].y = ojos3bres[i].y;
+  }
+  for (int i = 0; i < (int)ojos4bres.size(); i++) {
+    ojos4chaink[i].x = ojos4bres[i].x + 400;
+    ojos4chaink[i].y = ojos4bres[i].y;
+  }
+  for (int i = 0; i < (int)brazobres.size(); i++) {
+    brazochaink[i].x = brazobres[i].x + 400;
+    brazochaink[i].y = brazobres[i].y;
+  }
 
+  polychaink(pokemonchaink, image, 0xff53afFF, 4);
+  polychaink(ojos1chaink, image, 0xff53afFF, 4);
+  polychaink(ojos2chaink, image, 0xff53afFF, 4);
+  polychaink(ojos3chaink, image, 0x00ffffFF, 4);
+  polychaink(ojos4chaink, image, 0x00ffffFF, 4);
+  polychaink(brazochaink, image, 0xff53afFF, 4);
+
+  vector<Point> narizbezier = {
+    {228+400, 131},
+    {262+400, 161},
+    {281+400, 112}
+  };
+  vector<Point> ptsbezier = bezier(narizbezier[0], narizbezier[1], narizbezier[2]);
+  for (Point p : ptsbezier) {
+    image[(int)p.y][(int)p.x] = 0xff53afFF;
+  }
 
   byt data[height * width * 4];
   for (int x = 0; x < width; x++) {
