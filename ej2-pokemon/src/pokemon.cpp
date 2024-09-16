@@ -6,8 +6,8 @@ using namespace std;
 typedef unsigned char byt;
 
 int main() {
-  int width = 1270;
-  int height = 680;
+  const int width = 1270;
+  const int height = 680;
 
   int image[height][width];
 
@@ -82,6 +82,39 @@ int main() {
     image[(int)pb1.y][(int)pb1.x] = 0x0000FFFF;
     image[(int)pb2.y][(int)pb2.x] = 0x0000FFFF;
   }
+
+  srand(time(NULL));
+
+  vector<Point> poly;
+  for (int i = 0; i < 10; i++) {
+    int x1 = rand() % 1270;
+    int y1 = rand() % 680;
+    Point pp1;
+    pp1.x = x1;
+    pp1.y = y1;
+    poly.push_back(pp1);
+  }
+
+  polyfill(poly, image, 0xFFFF00FF);
+  for (Point p : poly) {
+    image[(int)p.y][(int)p.x] = 0xFF00FFFF;
+  }
+  image[(int)poly[0].y][(int)poly[0].x] = 0xFF0000FF;
+  image[(int)poly[poly.size()-1].y][(int)poly[poly.size()-1].x] = 0x00FF00FF;
+
+  Point p10 = { 883, 615 };
+  Point p11 = { 1126, 252 };
+  vector<Point> ptsbresen2 = bresenham(p10, p11);
+
+  for (Point p : ptsbresen2) {
+    image[(int)p.y][(int)p.x] = 0x0FF0000FF;
+  }
+  image[(int)p10.y][(int)p10.x] = 0x0000FFFF;
+  image[(int)p11.y][(int)p11.x] = 0x0000FFFF;
+
+  vector<Point> poly2 = { {10, 11}, {40, 15}, {45, 50}, {20, 52} };
+  polyfill(poly2, image, 0x00FF00FF);
+
 
   byt data[height * width * 4];
   for (int x = 0; x < width; x++) {
