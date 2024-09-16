@@ -37,12 +37,12 @@ void polychaink(vector<Point> pts, int (&img)[height][width], int c, int steps) 
   for (int i = 0; i < (int)pts.size() - 3; i += 3) {
     vector<Point> ptsch = chaikin(pts[i], pts[i+1], pts[i+2], pts[i+3], steps);
     for (Point p : ptsch) {
-      img[(int)p.y][(int)p.x] = 0x00FF00FF;
+      img[(int)p.y][(int)p.x] = c;
     }
   }
   int fi = pts.size() - 1;
   vector<Point> ptschf = chaikin(pts[fi-2], pts[fi-1], pts[fi], pts[0], steps);
   for (Point p : ptschf) {
-    img[(int)p.y][(int)p.x] = 0x00FF00FF;
+    img[(int)p.y][(int)p.x] = c;
   }
 }
