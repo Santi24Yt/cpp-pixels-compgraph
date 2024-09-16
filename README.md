@@ -8,6 +8,11 @@ preferida, de tu videojuego favorito. Para este ejercicio podrás usar otras las
 ![Screenshot](https://github.com/Santi24Yt/cpp-pixels-compgraph/blob/main/assets/linuxlastcallss.png?raw=true)
 
 
+
+https://github.com/user-attachments/assets/1c5e3c4d-2074-4420-b500-f01ad773ecf9
+
+
+
 ### Windows
 
 
@@ -24,3 +29,9 @@ Segunda parte: Utilizando las funciones que definiste anteriormente, realiza un 
 mitológico favorito.
 
 ![Screenshot](https://github.com/Santi24Yt/cpp-pixels-compgraph/blob/main/assets/linuxpokemonss.png?raw=true)
+
+
+
+https://github.com/user-attachments/assets/6e99d2b1-8b64-41e7-8ffb-4af59c95360e
+
+
