@@ -102,7 +102,7 @@ vector<Point> _bresenhamV(Point pi, Point pf) {
   int dx = pf.x - pi.x;
   int dy = pf.y - pi.y;
   int dir = 1;
-  if (dy < 0)
+  if (dx < 0)
     dir = -1;
   dx *= dir;
 
