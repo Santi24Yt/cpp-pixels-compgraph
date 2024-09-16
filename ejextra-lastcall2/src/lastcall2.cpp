@@ -62,6 +62,8 @@ int main() {
   return 0;
 }
 
+#define bgc 0x3b424aFF
+
 void dbg() {
   fillrect(0, 0, 800, 450, bgc);
 }
@@ -70,12 +72,12 @@ void dbg() {
 void dmainwin() {
   /* Ventana, tiene algunas orillas recortadas y otras rectas por lo que nos queda con 6 lados */
   int sombra[] = {
-    s(5+3), s(10+3),
-    s(10+3), s(5+3),
-    s(793+3), s(5+3),
-    s(795+3), s(8+3),
-    s(795+3), s(445+3),
-    s(5+3), s(445+3)
+    5+3, 10+3,
+    10+3, 5+3,
+    793+3, 5+3,
+    795+3, 8+3,
+    795+3, 445+3,
+    5+3, 445+3
   };
   setcolor(bgck);
   setfillstyle(1, 0);
@@ -151,7 +153,7 @@ void dmainwin() {
 /* Dibujar la ventana de herramientas */
 void dtoolswin() {
   /* Ventana */
-  fillsqrect(s(12+3), s(45+3), 108, 255, 3, 0);
+  fillsqrect(12+3, 45+3, 108, 255, 3, 0);
   fillsqrect(12, 45, 108, 255, 3, bgc2);
   /* Lineas de decoración */
   setcolor(bgck);
@@ -167,7 +169,7 @@ void dtoolswin() {
   /* Opciónes de herramienta */
   setcolor(bgck);
   for (int i = 1; i <= 6; i++)
-    rectangle(17, s(73+(30*(i-1))), 114, s(73+(30*i)));
+    rectangle(17, 73+(30*(i-1)), 114, 73+(30*i));
   /* Versión de revisión */
   setcolor(bgc3);
   line(14, 258, 118, 258);
@@ -232,7 +234,7 @@ void dtoolswin() {
 /* Ventana de especificaciónes del problema */
 void dspecwin() {
   /* Ventana */
-  fillsqrect(s(598+3), s(285+3), 190, 150, 3, 0);
+  fillsqrect(598+3, 285+3, 190, 150, 3, 0);
   fillsqrect(598, 285, 190, 150, 3, bgc2);
   /* Lineas de decoración */
   setcolor(bgck);
@@ -268,13 +270,13 @@ void dspecwin() {
   outtextxy(726, 345, datatx);
   /* Rectangulos que simulan texto */
   for(int i = 0; i < 5; i++)
-    fillrect(615, s(365 + (8*i)), 155, 5, 0);
+    fillrect(615, 365 + (8*i), 155, 5, 0);
 }
 
 /* Ventana de layout */
 void dlayoutwin() {
   /* Ventana */
-  fillsqrect(s(128+3), s(45+3), 382, 252, 3, 0);
+  fillsqrect(128+3, 45+3, 382, 252, 3, 0);
   fillsqrect(128, 45, 382, 252, 3, bgc2);
   /* Lineas de decoración */
   setcolor(bgck);
@@ -383,7 +385,7 @@ void dlayoutwin() {
 /* Ventana del simulador */
 void dsimwin(int tt) {
   /* Ventana */
-  fillsqrect(s(12+3), s(308+3), 578, 125, 3, 0);
+  fillsqrect(12+3, 308+3, 578, 125, 3, 0);
   fillsqrect(12, 308, 578, 125, 3, bgc2);
   /* Lineas de decoración */
   setcolor(bgck);
@@ -399,8 +401,8 @@ void dsimwin(int tt) {
   /* Botones de simulador */
   fillsqrect(18, 328, 58, 100, 2, 0);
   for (int i = 0; i < 3; i++)
-    sqrect(24, s(335 + (22*i)), 45, 18, 1, 2, 0);
-  sqrect(24, s(335 + (22*3)), 45, 20, 1, 2, 0);
+    sqrect(24, 335 + (22*i), 45, 18, 1, 2, 0);
+  sqrect(24, 335 + (22*3), 45, 20, 1, 2, 0);
   /* Simbolo de repetir */
   setcolor(2);
   line(46, 350, 52, 344);
@@ -448,7 +450,7 @@ void dsimwin(int tt) {
   setcolor(bgc3);
   line(82, 325, 82, 433);
   for (int i = 0; i < 6; i++)
-    fillrect(86, s(332 + (16 * i)), 28, 12, bgc3);
+    fillrect(86, 332 + (16 * i), 28, 12, bgc3);
   /* Nombre de funciones */
   char vptx[] = "+V";
   char readtx[] = "READ";
@@ -459,11 +461,11 @@ void dsimwin(int tt) {
   for (int i = 0; i < 6; i++) {
     int y = 330 + (16 * i);
     setcolor(bgc3);
-    line(82, s(y), 570, s(y));
+    line(82, y, 570, y);
     setcolor(15);
-    outtextxy(90, s(332 + (16 * i) + 4), textos[i]);
+    outtextxy(90, 332 + (16 * i) + 4, textos[i]);
     int y2 = 332 + (16 * i);
-    fillrect(122, s(y2), 444, 12, 0);
+    fillrect(122, y2, 444, 12, 0);
     /* Evaluar la función de 0 a 1000 y luego pasarla a tamaño de la sección */
     int prev = fns[i](0);
     for (int t = 0; t < 1000; t++) {
@@ -479,11 +481,11 @@ void dsimwin(int tt) {
       /* Si la función cambió de valor conectar los valores con una línea */
       if (f != prev) {
         setcolor(color);
-        line(s(fx), s(fpy), s(fx), s(fy));
+        line(fx, fpy, fx, fy);
       }
       /* Rellenar los pixeles faltantes en caso de que la escala sea mayor */
       for (int j = 0; j < (int)(scale + 1); j++) {
-        putpixel(s(fx) + j, s(fy), color);
+        putpixel(fx + j, fy, color);
       }
       prev = f;
     }
@@ -499,7 +501,7 @@ void dsimwin(int tt) {
 /* Ventana de visualizador */
 void dvizwin() {
   /* Ventana */
-  fillsqrect(s(517+3), s(45+3), 270, 228, 3, 0);
+  fillsqrect(517+3, 45+3, 270, 228, 3, 0);
   fillsqrect(517, 45, 270, 228, 3, bgc2);
   /* Lineas de decoración */
   setcolor(bgck);
