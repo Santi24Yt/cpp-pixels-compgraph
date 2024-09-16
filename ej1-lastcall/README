@@ -1,0 +1,16 @@
+Para compilar y ejecutar en linux:
+Instalar SDL2 y SDL_bgi
+https://sdl-bgi.sourceforge.io/
+
+compilar:
+$ make
+
+ejecutar:
+$ ./lastcall
+
+
+Para compilar y ejecutar en windows usando DevC++ 5.11:
+Primero descargamos y ponemos los archivos adicionales que
+nos dan para la práctica, luego tenemos que reemplazar uno
+de los archivos que nos dan ya que es una versión antigua
+que no tiene todas las funciones que debería ya implementadas.

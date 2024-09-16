@@ -1,0 +1,12 @@
+*Probado en linux pero no en windows, en teoría es 100% posible compilar en windows*
+https://techdecodetutorials.com/how-to-run-sfml-in-visual-studio-code-on-windows-10/
+(Entre otros, posiblemente haya mejores maneras)
+
+Para compilar y ejecutar en linux:
+Instalar sfml
+
+compilar:
+$ make
+
+ejecutar:
+$ ./pokemon
