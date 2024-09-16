@@ -1,5 +1,7 @@
 # Graficación por Computadora Práctica 3
 
+Repositorio: https://github.com/Santi24Yt/cpp-pixels-compgraph/tree/main
+
 ## Ejercicio 1
 Utilizando las herramientas vistas en clase, realiza una representación gráfica de tu escena
 preferida, de tu videojuego favorito. Para este ejercicio podrás usar otras las funciones vistas en clase.
