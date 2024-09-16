@@ -16,9 +16,11 @@ https://github.com/user-attachments/assets/1c5e3c4d-2074-4420-b500-f01ad773ecf9
 
 
 ### Windows
-![Screenshot]()
+![Screenshot](https://github.com/Santi24Yt/cpp-pixels-compgraph/blob/main/assets/windowslastcallss.png?raw=true)
 
 
+
+Podemos ver que la versión de linux es superior en muchos aspectos
 
 ## Ejercicio 2
 Primera Parte: Realiza una función en c++ para cada uno de los algoritmos para pintar vistos en clase, siendo
